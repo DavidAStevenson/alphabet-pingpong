@@ -10,4 +10,4 @@ alphabet-pingpong.go
 FROM scratch
 COPY --from=builder /go/bin/alphabet-pingpong /alphabet-pingpong
 ENTRYPOINT ["/alphabet-pingpong"]
-CMD ["nats://192.168.99.100:4222", "A"]
+CMD ["--url=nats://192.168.99.100:4222", "--letter=A"]

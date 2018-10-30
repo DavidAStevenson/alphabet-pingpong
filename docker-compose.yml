@@ -1,0 +1,23 @@
+version: "3"
+services:
+  pingpong-a:
+    image: ds35472/alphabet-pingpong:latest
+    deploy:
+      replicas: 2
+      resources:
+        limits:
+          cpus: "0.1"
+          memory: '10M'
+      restart_policy:
+        condition: on-failure
+  pingpong-b:
+    image: ds35472/alphabet-pingpong:latest
+    command: ["--url=nats://192.168.99.100:4222", "--letter=B"]
+    deploy:
+      replicas: 1
+      resources:
+        limits:
+          cpus: "0.1"
+          memory: '10M'
+      restart_policy:
+        condition: on-failure
