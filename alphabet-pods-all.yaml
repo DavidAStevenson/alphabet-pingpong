@@ -1,0 +1,286 @@
+---
+apiVersion: v1
+kind: Pod
+metadata:
+  name: alphabet-pingpong-a
+spec:
+  containers:
+    - image: ds35472/alphabet-pingpong:latest
+      name: alphabet-pingpong-a
+      args: ["--url=nats://demo.nats.io:4222", "--letter=A"]
+
+---
+apiVersion: v1
+kind: Pod
+metadata:
+  name: alphabet-pingpong-b
+spec:
+  containers:
+    - image: ds35472/alphabet-pingpong:latest
+      name: alphabet-pingpong-b
+      args: ["--url=nats://demo.nats.io:4222", "--letter=B"]
+
+---
+apiVersion: v1
+kind: Pod
+metadata:
+  name: alphabet-pingpong-c
+spec:
+  containers:
+    - image: ds35472/alphabet-pingpong:latest
+      name: alphabet-pingpong-c
+      args: ["--url=nats://demo.nats.io:4222", "--letter=C"]
+
+---
+apiVersion: v1
+kind: Pod
+metadata:
+  name: alphabet-pingpong-d
+spec:
+  containers:
+    - image: ds35472/alphabet-pingpong:latest
+      name: alphabet-pingpong-d
+      args: ["--url=nats://demo.nats.io:4222", "--letter=D"]
+
+---
+apiVersion: v1
+kind: Pod
+metadata:
+  name: alphabet-pingpong-e
+spec:
+  containers:
+    - image: ds35472/alphabet-pingpong:latest
+      name: alphabet-pingpong-e
+      args: ["--url=nats://demo.nats.io:4222", "--letter=E"]
+
+---
+apiVersion: v1
+kind: Pod
+metadata:
+  name: alphabet-pingpong-f
+spec:
+  containers:
+    - image: ds35472/alphabet-pingpong:latest
+      name: alphabet-pingpong-f
+      args: ["--url=nats://demo.nats.io:4222", "--letter=F"]
+
+---
+apiVersion: v1
+kind: Pod
+metadata:
+  name: alphabet-pingpong-g
+spec:
+  containers:
+    - image: ds35472/alphabet-pingpong:latest
+      name: alphabet-pingpong-g
+      args: ["--url=nats://demo.nats.io:4222", "--letter=G"]
+
+---
+apiVersion: v1
+kind: Pod
+metadata:
+  name: alphabet-pingpong-h
+spec:
+  containers:
+    - image: ds35472/alphabet-pingpong:latest
+      name: alphabet-pingpong-h
+      args: ["--url=nats://demo.nats.io:4222", "--letter=H"]
+
+---
+apiVersion: v1
+kind: Pod
+metadata:
+  name: alphabet-pingpong-i
+spec:
+  containers:
+    - image: ds35472/alphabet-pingpong:latest
+      name: alphabet-pingpong-i
+      args: ["--url=nats://demo.nats.io:4222", "--letter=I"]
+
+---
+apiVersion: v1
+kind: Pod
+metadata:
+  name: alphabet-pingpong-j
+spec:
+  containers:
+    - image: ds35472/alphabet-pingpong:latest
+      name: alphabet-pingpong-j
+      args: ["--url=nats://demo.nats.io:4222", "--letter=J"]
+
+---
+apiVersion: v1
+kind: Pod
+metadata:
+  name: alphabet-pingpong-k
+spec:
+  containers:
+    - image: ds35472/alphabet-pingpong:latest
+      name: alphabet-pingpong-k
+      args: ["--url=nats://demo.nats.io:4222", "--letter=K"]
+
+---
+apiVersion: v1
+kind: Pod
+metadata:
+  name: alphabet-pingpong-l
+spec:
+  containers:
+    - image: ds35472/alphabet-pingpong:latest
+      name: alphabet-pingpong-l
+      args: ["--url=nats://demo.nats.io:4222", "--letter=L"]
+
+---
+apiVersion: v1
+kind: Pod
+metadata:
+  name: alphabet-pingpong-m
+spec:
+  containers:
+    - image: ds35472/alphabet-pingpong:latest
+      name: alphabet-pingpong-m
+      args: ["--url=nats://demo.nats.io:4222", "--letter=M"]
+
+---
+apiVersion: v1
+kind: Pod
+metadata:
+  name: alphabet-pingpong-n
+spec:
+  containers:
+    - image: ds35472/alphabet-pingpong:latest
+      name: alphabet-pingpong-n
+      args: ["--url=nats://demo.nats.io:4222", "--letter=N"]
+
+---
+apiVersion: v1
+kind: Pod
+metadata:
+  name: alphabet-pingpong-o
+spec:
+  containers:
+    - image: ds35472/alphabet-pingpong:latest
+      name: alphabet-pingpong-o
+      args: ["--url=nats://demo.nats.io:4222", "--letter=O"]
+
+---
+apiVersion: v1
+kind: Pod
+metadata:
+  name: alphabet-pingpong-p
+spec:
+  containers:
+    - image: ds35472/alphabet-pingpong:latest
+      name: alphabet-pingpong-p
+      args: ["--url=nats://demo.nats.io:4222", "--letter=P"]
+
+---
+apiVersion: v1
+kind: Pod
+metadata:
+  name: alphabet-pingpong-q
+spec:
+  containers:
+    - image: ds35472/alphabet-pingpong:latest
+      name: alphabet-pingpong-q
+      args: ["--url=nats://demo.nats.io:4222", "--letter=Q"]
+
+---
+apiVersion: v1
+kind: Pod
+metadata:
+  name: alphabet-pingpong-r
+spec:
+  containers:
+    - image: ds35472/alphabet-pingpong:latest
+      name: alphabet-pingpong-r
+      args: ["--url=nats://demo.nats.io:4222", "--letter=R"]
+
+---
+apiVersion: v1
+kind: Pod
+metadata:
+  name: alphabet-pingpong-s
+spec:
+  containers:
+    - image: ds35472/alphabet-pingpong:latest
+      name: alphabet-pingpong-s
+      args: ["--url=nats://demo.nats.io:4222", "--letter=S"]
+
+---
+apiVersion: v1
+kind: Pod
+metadata:
+  name: alphabet-pingpong-t
+spec:
+  containers:
+    - image: ds35472/alphabet-pingpong:latest
+      name: alphabet-pingpong-t
+      args: ["--url=nats://demo.nats.io:4222", "--letter=T"]
+
+---
+apiVersion: v1
+kind: Pod
+metadata:
+  name: alphabet-pingpong-u
+spec:
+  containers:
+    - image: ds35472/alphabet-pingpong:latest
+      name: alphabet-pingpong-u
+      args: ["--url=nats://demo.nats.io:4222", "--letter=U"]
+
+---
+apiVersion: v1
+kind: Pod
+metadata:
+  name: alphabet-pingpong-v
+spec:
+  containers:
+    - image: ds35472/alphabet-pingpong:latest
+      name: alphabet-pingpong-v
+      args: ["--url=nats://demo.nats.io:4222", "--letter=V"]
+
+---
+apiVersion: v1
+kind: Pod
+metadata:
+  name: alphabet-pingpong-w
+spec:
+  containers:
+    - image: ds35472/alphabet-pingpong:latest
+      name: alphabet-pingpong-w
+      args: ["--url=nats://demo.nats.io:4222", "--letter=W"]
+
+---
+apiVersion: v1
+kind: Pod
+metadata:
+  name: alphabet-pingpong-x
+spec:
+  containers:
+    - image: ds35472/alphabet-pingpong:latest
+      name: alphabet-pingpong-x
+      args: ["--url=nats://demo.nats.io:4222", "--letter=X"]
+
+---
+apiVersion: v1
+kind: Pod
+metadata:
+  name: alphabet-pingpong-y
+spec:
+  containers:
+    - image: ds35472/alphabet-pingpong:latest
+      name: alphabet-pingpong-y
+      args: ["--url=nats://demo.nats.io:4222", "--letter=Y"]
+
+---
+apiVersion: v1
+kind: Pod
+metadata:
+  name: alphabet-pingpong-z
+spec:
+  containers:
+    - image: ds35472/alphabet-pingpong:latest
+      name: alphabet-pingpong-z
+      args: ["--url=nats://demo.nats.io:4222", "--letter=Z"]
+

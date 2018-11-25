@@ -36,3 +36,14 @@ A
 6) shut down the relay participants
 
 ./down.sh
+
+---
+
+# Kubernetes
+
+This is set up to run against demo.nats.io
+These are raw pods, so killing one or more will break the relay
+
+```
+kubectl apply -f alphabet-pods-all.yaml
+```
