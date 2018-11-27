@@ -1,41 +1,49 @@
 # alphabet-pingpong
 A golang implementation of an alphabet relay / pingpong microservice
 
-1) <optional> Start gnatds 
-
-Run gnatds locally, by following the instructions here: https://www.nats.io/documentation/additional_documentation/gnatsd-docker/
-
-Alternatively, do not run gnatds locally, and plan on running against the NATS demo server at demo.nats.io
-
-2) telnet to the gnatsd IP and port and subscribe to alphabet.*
+1) Fire up 26 containers running the image
 
 ```
-telnet 192.168.99.100 4222
+./up.sh
 ```
+
+2a) telnet to the gnatsd IP and port 
 
 ```
 telnet demo.nats.io 4222
 ```
 
+2b) Subscribe to the alphabet.\* topics
+
 ```
 sub alphabet.* 90
 ```
 
-3) run the program
-
-./up.sh
-
-4) seed the alphabet-relay
+2c) Seed the alphabet-relay
 
 ```
 pub alphabet.A 1
 A
 ```
-5) Observe the alphabet letters bouncing between the running containers and the gnatds server via the telnet client subscription
 
-6) shut down the relay participants
+4) Observe the alphabet letters bouncing between the running containers and the gnatds server via the telnet client subscription
 
+5) shut down the relay participants
+
+```
 ./down.sh
+```
+
+---
+
+Rather than run against demo.nats.io, gnatds can be run locally. Follow the instructions here: https://www.nats.io/documentation/additional_documentation/gnatsd-docker/
+
+In this case, you will be able to telnet using the IP of your docker-machine, e.g. something like:
+
+```
+telnet 192.168.99.100 4222
+```
+And to run the containers, check the comment in the up.sh script.
 
 ---
 
@@ -46,4 +54,9 @@ These are raw pods, so killing one or more will break the relay
 
 ```
 kubectl apply -f alphabet-pods-all.yaml
+```
+
+Bring them down:
+```
+kubectl delete -f alphabet-pods-all.yaml
 ```
