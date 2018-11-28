@@ -26,14 +26,18 @@ func alphabetRelay(c byte) byte {
 
 func main() {
 
-	log.Println("Starting alphabet-pingpong...")
-
-	var url = flag.String("url", nats.DefaultURL, "The NATS server URL to connect to")
-	var letter = flag.String("letter", "A", "The letter that is to processed")
+	var (
+		url    = flag.String("url", nats.DefaultURL, "The NATS server URL to connect to")
+		letter = flag.String("letter", "A", "The letter that is to processed")
+		seed   = flag.Bool("seed", false, "true/false whether to automatically seed with a letter")
+	)
 	flag.Parse()
+
 	var let = *letter
 	var letr = let[0:1]
 
+	log.Println("Starting alphabet-pingpong...")
+	log.Printf("alphabet-pingpong handling letter [%s], auto-seed is %t\n", string(letr), seed)
 	log.Printf("alphabet-pingpong connecting to [%s]\n", *url)
 
 	var nc *nats.Conn
