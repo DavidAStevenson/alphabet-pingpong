@@ -1,6 +1,10 @@
 #!/bin/bash
 
-for LETTER in {A..Z}
+LETTER=A
+echo "Starting alphabet-pingpong-${LETTER}"
+docker run -d --rm --name=alphabet-pingpong-${LETTER} ds35472/alphabet-pingpong:alpha --url=nats://demo.nats.io:4222 --letter=${LETTER} --seed;
+
+for LETTER in {B..Z}
 do
     echo "Starting alphabet-pingpong-${LETTER}"
 	docker run -d --rm --name=alphabet-pingpong-${LETTER} ds35472/alphabet-pingpong:latest --url=nats://demo.nats.io:4222 --letter=${LETTER};

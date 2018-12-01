@@ -7,7 +7,7 @@ spec:
   containers:
     - image: ds35472/alphabet-pingpong:latest
       name: alphabet-pingpong-a
-      args: ["--url=nats://demo.nats.io:4222", "--letter=A"]
+      args: ["--url=nats://demo.nats.io:4222", "--letter=A", "--seed"]
 
 ---
 apiVersion: v1

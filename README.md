@@ -8,13 +8,13 @@ A golang implementation of an alphabet relay / pingpong microservice
 ```
 ./up.sh
 ```
+(Note, alphabet-letter-A is set to automatically seed itself letter A to kick things off)
 
-2) Seeding the relay via telnet
+2) Observe the relay via telnet
 - telnet to the gnatsd IP and port 
 
 ```
 telnet demo.nats.io 4222
-```
 
 - subscribe to the alphabet.\* topics
 
@@ -22,16 +22,14 @@ telnet demo.nats.io 4222
 sub alphabet.* 90
 ```
 
-- seed the alphabet-relay
+- Note, the alphabet-relay can be manually seeded by publishing to an alphabet.<letter> topic, as follows:
 
 ```
 pub alphabet.A 1
 A
 ```
 
-3) Observe the alphabet letters bouncing between the running containers and the gnatds server via the telnet client subscription
-
-4) shut down the relay participants
+3) shut down the relay participants
 
 ```
 ./down.sh

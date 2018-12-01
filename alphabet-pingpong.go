@@ -71,7 +71,7 @@ func main() {
 	defer nc.Close()
 	log.Println("alphabet-pingpong started successfully.")
 
-	seed_needed = *seed
+	seed_needed := *seed
 
 	if *seed {
 		ticker := time.NewTicker(10 * time.Second)
