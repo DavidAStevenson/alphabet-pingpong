@@ -23,7 +23,7 @@ telnet demo.nats.io 4222
 sub alphabet.* 90
 ```
 
-- Note, the alphabet-relay can be manually seeded by publishing to an alphabet.<letter> topic, as follows:
+- Note, the up.sh script is set to have the pingpong kicked-off automatically, but the alphabet-relay could be manually seeded by publishing to an alphabet.<letter> topic, as follows:
 
 ```
 pub alphabet.A 1
@@ -60,7 +60,7 @@ These are raw pods, so killing one or more will break the relay
 kubectl apply -f alphabet-pods-all.yaml
 ```
 
-Seed the relay via telnet as described above.
+As above, the pingpong will start automatically using the default settings here, but it also is possible to seed the relay via telnet as described above.
 
 Bring them down
 ```
