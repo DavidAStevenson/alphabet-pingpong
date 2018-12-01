@@ -15,6 +15,7 @@ A golang implementation of an alphabet relay / pingpong microservice
 
 ```
 telnet demo.nats.io 4222
+```
 
 - subscribe to the alphabet.\* topics
 
