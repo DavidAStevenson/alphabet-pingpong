@@ -4,7 +4,10 @@ import (
 	"bytes"
 	"flag"
 	"log"
+	"os"
+	"os/signal"
 	"sync"
+	"syscall"
 	"time"
 
 	"github.com/nats-io/go-nats"
@@ -71,7 +74,7 @@ func main() {
 	defer nc.Close()
 	log.Println("alphabet-pingpong started successfully.")
 
-	seed_needed := *seed
+	seedNeeded := *seed
 
 	if *seed {
 		ticker := time.NewTicker(10 * time.Second)
@@ -82,17 +85,17 @@ func main() {
 				select {
 				case t := <-ticker.C:
 					log.Println("Current time: ", t)
-					if seed_needed {
+					if seedNeeded {
 						log.Println("You publish now...")
 						publishMessage(msg, nc)
 					}
-					seed_needed = true // seed next tick, unless action happens
+					seedNeeded = true // seed next tick, unless action happens
 				}
 			}
 		}(string(letr), nc)
 	}
 
-	// use WaitGroup to keep running indefinitely, won't call Done on it
+	// use WaitGroup to run indefinitely (until signalled to shutdown)
 	wg := sync.WaitGroup{}
 	wg.Add(1)
 
@@ -105,9 +108,9 @@ func main() {
 
 		msgChar := msg.Data[0:1]
 		if bytes.Equal(msgChar, []byte(letr)) {
-			// received the letter, no need to seed it 
+			// received the letter, no need to seed it
 			if *seed {
-				seed_needed = false
+				seedNeeded = false
 			}
 
 			res := alphabetRelay(byte(msgChar[0]))
@@ -122,6 +125,21 @@ func main() {
 
 	log.Printf("Listening on [%s]\n", subj)
 
-	// Wait for the subscriber to receive a message
+	// Gracefully shutdown on SIGINT or SIGNTERM
+	signals := make(chan os.Signal, 1)
+
+	signal.Notify(signals, syscall.SIGINT, syscall.SIGTERM)
+
+	go func() {
+		sig := <-signals
+		log.Printf("Signal received: [%s]\n", sig)
+		wg.Done()
+	}()
+
+	// run until a termination signal is received
 	wg.Wait()
+
+	log.Printf("alphabet-pingpong [%s] shuting down gracefully...\n", string(letr))
+	nc.Close()
+	log.Printf("alphabet-pingpong [%s] says, bye bye.\n", string(letr))
 }
