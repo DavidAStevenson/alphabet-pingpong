@@ -1,11 +1,25 @@
 # TODO
 - Add a readiness check to the app, such that it indicates readiness once the NATS sever connection is acheived
+- send something more interesting than mere single letters (e.g. current time + payload, for starters)
+	- probably an id of the sending container, would be useful - see next item
+- make the seeding really smart? have the app figure out which letter to try sending next to get the relay going?
+	- for example, say a container comes up
+		- it connects and listens...
+		- if it hears nothing, then it chooses a letter and sends it
+		- if it hears the same letter it sent
+			- it's either the letter it sent echoing back
+			- or another container has simultaneously sent the same letter
+		- if it does not hear the same letter
+			- it can assume after a few seconds that it owns the letter
+		- for any remaining letters,
+			- repeat the process
+		- until there are no letters left unclaimed
+			- and by this point the letters should be echoing around already
 - add some kind of test suite (learn golang unit test framework(s))
 - as it gets bigger, modularize the code appropriately
 - make this observable somehow...
     - maybe just deploy ELK with it?
 - get gnatsd running within the Kube cluster locally, and connect to it
-- send something more interesting than mere single letters (e.g. current time + payload, for starters)
 
 - Car Park
     - setup vim-go extension, learn to use the fmt tool
